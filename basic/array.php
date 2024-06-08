@@ -6,8 +6,11 @@
     // key => value, 鍵=>值
     $user = [
         'name' => 'John',
+        'test' => 'Asd',
         'mail' => 'john@gmail.com',
-        'phone'=> '0988765432'
+        'phone'=> '0988765432',
+        'id' => '789',
+        'num' => '289'
     ];
 
     // echo $user['name'];
@@ -21,7 +24,7 @@
     // }
 
     $drinks = ['熟成紅茶','麗春紅茶','春芽冷露'];
-
+    $data = ['zebra','kangroo','apple','gogoro'];
     $beans = [
         'name' => '阿拉比卡',
         'area' => '高海拔',
@@ -65,7 +68,7 @@
         'ntd' => $price,
         'brand' => $brand
     ];
-    print_r($c2);
+    // print_r($c2);
 
     // in_array(要判斷的資料,要判斷的陣列) 判斷陣列內是否有該資料
 
@@ -75,5 +78,20 @@
 
     // is_array() 判斷是否為陣列
 
-    var_dump(is_array($beans));
-    var_dump(is_array($coffee));
+    // var_dump(is_array($beans));
+    // var_dump(is_array($coffee));
+
+    // 
+    // sort($data);
+    // rsort($data);
+
+    // ksort($beans);
+    // krsort($beans);
+
+    // asort($user);
+    // arsort($user);
+
+    // 1234567890AZaz
+
+    shuffle($drinks);
+    print_r($drinks);
