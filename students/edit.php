@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <form action="store.php" method="get">
+    <form action="update.php" method="get">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name" value="<?php echo $result['name'];?>">
