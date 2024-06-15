@@ -40,7 +40,7 @@
                 <td><?php echo $student['name'];?></td>
                 <td><?php echo $student['phone'];?></td>
                 <td>
-                    <a href="show.php?id=3&name=john">詳細資料</a>
+                    <a href="show.php?id=<?php echo $student['id'];?>">詳細資料</a>
                 </td>
             </tr>
         <?php } ?>
