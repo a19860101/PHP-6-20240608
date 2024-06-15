@@ -30,11 +30,11 @@
         </div>
         <div>
             <label for="">性別</label>
-            <input type="radio" name="gender" value="男">
+            <input type="radio" name="gender" value="男" <?php echo $result['gender']=='男'?'checked':''; ?> >
             <label for="">男</label>
-            <input type="radio" name="gender" value="女">
+            <input type="radio" name="gender" value="女" <?php echo $result['gender']=='女'?'checked':''; ?> >
             <label for="">女</label>
-            <input type="radio" name="gender" value="其他">
+            <input type="radio" name="gender" value="其他" <?php echo $result['gender']=='其他'?'checked':''; ?> >
             <label for="">其他</label>
         </div>
         <div>
