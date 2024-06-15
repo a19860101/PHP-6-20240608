@@ -18,12 +18,23 @@
         $input = htmlspecialchars($input); //將特殊字元實體化
         return $input;
     }
-    $name = check($name);
-    var_dump($name);
-    echo "<div>姓名:{$name}</div>";
-    echo "<div>電話:{$phone}</div>";
+    // $name = check($name);
+    // var_dump($name);
+    if(check($name) == ''){
+        echo '請輸入姓名';
+    }else{
+        echo "<div>姓名:{$name}</div>";
+    }
+
+    if(empty(check($phone))){
+        echo '請輸入電話';
+    }else{
+        echo "<div>電話:{$phone}</div>";
+    }
+
     echo "<div>email:{$email}</div>";
     echo "<div>學歷:{$edu}</div>";
+
     if(isset($gender)){
         echo "<div>性別:{$gender}</div>";
     }else{
