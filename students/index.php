@@ -41,6 +41,8 @@
                 <td><?php echo $student['phone'];?></td>
                 <td>
                     <a href="show.php?id=<?php echo $student['id'];?>">詳細資料</a>
+                    <a href="edit.php?id=<?php echo $student['id'];?>">編輯</a>
+
                 </td>
             </tr>
         <?php } ?>
