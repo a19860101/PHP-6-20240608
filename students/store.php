@@ -8,4 +8,6 @@
     $stmt->execute([$name,$phone,$email,$gender,$course,$comment]);
 
 
-    header('location:index.php');
+    // header('location:index.php');
+    echo '<script>alert("資料已新增")</script>';
+    header('refresh:0;url=index.php');

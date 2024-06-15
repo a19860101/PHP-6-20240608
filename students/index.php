@@ -11,6 +11,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table,td,th {
+            border: 1px solid #777;
+            padding: 15px;
+        }
+    </style>
 </head>
 <body>
     <h1>學員通訊錄</h1>
@@ -20,10 +29,7 @@
             <th>ID</th>
             <th>姓名</th>
             <th>電話</th>
-            <th>EMAIL</th>
-            <th>性別</th>
-            <th>科目</th>
-            <th>備註</th>
+            <th>動作</th>
         </tr>
         <?php 
             foreach($result as $student){ 
@@ -33,10 +39,9 @@
                 <td><?php echo $student['id'];?></td>
                 <td><?php echo $student['name'];?></td>
                 <td><?php echo $student['phone'];?></td>
-                <td><?php echo $email;?></td>
-                <td><?php echo $gender;?></td>
-                <td><?php echo $course;?></td>
-                <td><?php echo $comment;?></td>
+                <td>
+                    <a href="show.php?id=3&name=john">詳細資料</a>
+                </td>
             </tr>
         <?php } ?>
         <?php
