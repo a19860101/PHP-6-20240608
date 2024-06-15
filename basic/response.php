@@ -3,6 +3,11 @@
     // print_r($_POST);
     // print_r($_GET);
     print_r($_REQUEST);
+
+    /* 
+        post都會用在表單傳遞上，除了搜尋以外
+        get會用在連結傳值
+    */
     // echo '<div>你的姓名:'.$_REQUEST['name'].'<div>';
     // echo '<div>你的email:'.$_REQUEST['email'].'<div>';
 

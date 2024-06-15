@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="response.php" method="post">
+    <form action="response.php" method="get">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name">
