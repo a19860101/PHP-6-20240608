@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="response.php" method="get">
+<form action="store.php" method="get">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name">
@@ -43,7 +43,7 @@
         </div>
         <div>
             <label for="">備註</label>
-            <textarea name="content" id=""></textarea>
+            <textarea name="comment" id=""></textarea>
         </div>
         <input type="submit" value="建立學員資料">
     </form>
