@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>學員通訊錄</h1>
-
+    <a href="create.php">新增學員</a>
     <table>
         <tr>
             <th>ID</th>
