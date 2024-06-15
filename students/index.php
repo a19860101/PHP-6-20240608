@@ -25,34 +25,33 @@
             <th>科目</th>
             <th>備註</th>
         </tr>
-    <?php 
-        foreach($result as $student){ 
-        extract($student);
-    ?>
-        <tr>
-            <td><?php echo $id;?></td>
-            <td><?php echo $student['name'];?></td>
-            <td><?php echo $phone;?></td>
-            <td><?php echo $email;?></td>
-            <td><?php echo $gender;?></td>
-            <td><?php echo $course;?></td>
-            <td><?php echo $comment;?></td>
-        </tr>
-    <?php } ?>
-
+        <?php 
+            foreach($result as $student){ 
+            extract($student);
+        ?>
+            <tr>
+                <td><?php echo $student['id'];?></td>
+                <td><?php echo $student['name'];?></td>
+                <td><?php echo $student['phone'];?></td>
+                <td><?php echo $email;?></td>
+                <td><?php echo $gender;?></td>
+                <td><?php echo $course;?></td>
+                <td><?php echo $comment;?></td>
+            </tr>
+        <?php } ?>
+        <?php
+            // foreach($result as $student){
+            //     echo "<tr>";
+            //     echo "<td>{$student['id']}</td>";
+            //     echo "<td>{$student['name']}</td>";
+            //     echo "<td>{$student['phone']}</td>";
+            //     echo "<td>{$student['email']}</td>";
+            //     echo "<td>{$student['gender']}</td>";
+            //     echo "<td>{$student['course']}</td>";
+            //     echo "<td>{$student['comment']}</td>";
+            //     echo "</tr>";
+            // }
+        ?>
     </table>
-    <?php
-        // foreach($result as $student){
-            // extract($student);
-            // echo "<div>{$student['name']}</div>";
-            // echo "<div>{$student['email']}</div>";
-            // echo "<div>{$student['phone']}</div>";
-            // echo "<div>{$student['gender']}</div>";
-            // echo "<div>{$name}</div>";
-            // echo "<div>{$email}</div>";
-            // echo "<div>{$phone}</div>";
-            // echo "<div>{$gender}</div>";
-        // }
-    ?>
 </body>
 </html>
