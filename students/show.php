@@ -15,7 +15,7 @@
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     extract($result);
-    print_r($result);
+    // print_r($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,11 @@
         <li>科目：<?php echo $result['course']; ?></li>
         <li>備註：<?php echo $result['comment']; ?></li>
     </ul>
+    <a href="index.php">學員列表</a>
+    <form action="delete.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
+        <input type="submit" value="刪除">
+    </form>
 </body>
 </html>
 
