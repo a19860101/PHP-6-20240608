@@ -24,9 +24,19 @@
     echo "<div>電話:{$phone}</div>";
     echo "<div>email:{$email}</div>";
     echo "<div>學歷:{$edu}</div>";
-    echo "<div>性別:{$gender}</div>";
-    $skill = implode(',',$skill);
-    echo "<div>專長:{$skill}</div>";
+    if(isset($gender)){
+        echo "<div>性別:{$gender}</div>";
+    }else{
+        echo "<div>性別:未選擇</div>";
+    }
+
+    // isset();
+    if(isset($skill)){
+        $skill = implode(',',$skill);
+        echo "<div>專長:{$skill}</div>";
+    }else{
+        echo "<div>專長:未選擇</div>";
+    }
     echo "<div>內容:{$content}</div>";
     // print_r($skill);
     // echo implode(',',$skill);
