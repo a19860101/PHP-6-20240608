@@ -59,6 +59,8 @@
         </div>
         <input type="hidden" value="<?php echo $result['id'];?>" name="id">
         <input type="submit" value="更新學員資料">
+        <input type="button" value="回學員列表" onclick="location.href='index.php'">
+        <input type="button" value="回上頁" onclick="history.back()">
     </form>
 </body>
 </html>

@@ -16,4 +16,6 @@
     $stmt->execute([$name,$email,$phone,$gender,$course,$comment,$id]);
 
     echo '<script>alert("資料已更新")</script>';
-    header('refresh:0;url=index.php');
+    // header('refresh:0;url=index.php');
+    // header('refresh:0;url=edit.php?id='.$id);
+    header("refresh:0;url=edit.php?id={$id}");
