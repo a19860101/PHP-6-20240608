@@ -11,7 +11,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="store.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
         <input type="file" name="img">
         <input type="submit" value="上傳圖片">
     </form>

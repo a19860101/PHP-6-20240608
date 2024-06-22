@@ -19,7 +19,6 @@
         if(!is_dir('images')){
             mkdir('images');
         }
-
         $img_name = md5(time());
         $ext = pathinfo($name,PATHINFO_EXTENSION);
         $ext = strtolower($ext);
@@ -34,17 +33,22 @@
 
         if($error == 0){
             move_uploaded_file($tmp_name,$target); 
-            echo '<script>alert("上傳成功")</script>';
-            header('refresh:0;url=index.php');
+            $img['fullname'] = $fullname;
+            $img['name'] = $name;
+            return $img;
+            // echo '<script>alert("上傳成功")</script>';
+            // header('refresh:0;url=index.php');
         }else{
             echo '<script>alert("上傳錯誤")</script>';
             header('refresh:0;url=index.php');
         }
     }
-    function store($request){
+    function store($request,$files){
         extract($request);
-        $now = date('Y-m-d H:i:s');
-        $sql = 'INSERT INTO galleries(name,path,created_at)VALUES(?,?,?)';
-        $stmt = db()->prepare($sql);
-        $stmt->execute([$name,$path,$now]);
+        $img = imgUpload($files);
+        print_r($img);
+        // $now = date('Y-m-d H:i:s');
+        // $sql = 'INSERT INTO galleries(name,path,created_at)VALUES(?,?,?)';
+        // $stmt = db()->prepare($sql);
+        // $stmt->execute([$name,$path,$now]);
     }
