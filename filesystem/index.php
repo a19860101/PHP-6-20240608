@@ -1,3 +1,8 @@
+<?php
+    if(isset($_REQUEST['del'])){
+        unlink($_REQUEST['img']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +17,20 @@
     </form>
     <?php
         $imgs = glob('images/*');
+        $img_num = count($imgs);
     ?>
     <div>
+        <div>
+            共有<?php echo $img_num;?>張圖片
+        </div>
         <?php foreach($imgs as $img){ ?>
-            <img src="<?php echo $img;?>" alt="" width="200">
+            <div>
+                <img src="<?php echo $img;?>" alt="" width="200">
+                <form action="" method="post">
+                    <input type="hidden" name="img" value="<?php echo $img; ?>">
+                    <input type="submit" name="del" value="刪除">
+                </form>
+            </div>
         <?php } ?>
     </div>
     <?php //echo md5(time()); ?>
