@@ -1,23 +1,7 @@
 <?php
-    // echo $_GET['id'];
-    // var_dump($_GET);
-    include('db.php');
-    // $id = $_REQUEST['id'];
-    extract($_REQUEST);
-
-    // 方法一 直接取資料
-    // $sql = 'SELECT * FROM students WHERE id = '.$id;
-    // $sql = "SELECT * FROM students WHERE id={$id}";
-    // $result = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
-    
-    // 方法二 使用預備陳述式
-    $sql = 'SELECT * FROM students WHERE id = ?';
-    $stmt = $pdo->prepare($sql); //使用預備陳述式包住sql語法進行保護
-    $stmt->execute([$id]);//帶入資料並執行sql
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);//取得資料
-
+    include('function.php');
+    $result = show($_REQUEST);
     extract($result);
-    // print_r($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
