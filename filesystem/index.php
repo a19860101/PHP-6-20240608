@@ -28,7 +28,7 @@
                 <img src="<?php echo $img;?>" alt="" width="200">
                 <form action="" method="post">
                     <input type="hidden" name="img" value="<?php echo $img; ?>">
-                    <input type="submit" name="del" value="刪除">
+                    <input type="submit" name="del" value="刪除" onclick="return confirm('確認刪除？')">
                 </form>
             </div>
         <?php } ?>
