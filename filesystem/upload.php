@@ -9,4 +9,14 @@
     // echo '<div>'.$_FILES['img']['size'].'</div>';
     
     extract($_FILES['img']);
-    move_uploaded_file($tmp_name,"images/{$name}");
+
+    $target = "images/{$name}";
+
+    if($error == 0){
+        move_uploaded_file($tmp_name,$target); 
+        echo '<script>alert("上傳成功")</script>';
+        header('refresh:0;url=index.php');
+    }else{
+        echo '<script>alert("上傳錯誤")</script>';
+        header('refresh:0;url=index.php');
+    }
