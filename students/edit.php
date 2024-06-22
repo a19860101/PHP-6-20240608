@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <form action="update.php" method="get">
+    <form action="update.php" method="post">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name" value="<?php echo $result['name'];?>">
@@ -57,7 +57,8 @@
             <label for="">備註</label>
             <textarea name="comment" id=""><?php echo $result['comment'];?></textarea>
         </div>
-        <input type="submit" value="建立學員資料">
+        <input type="hidden" value="<?php echo $result['id'];?>" name="id">
+        <input type="submit" value="更新學員資料">
     </form>
 </body>
 </html>
