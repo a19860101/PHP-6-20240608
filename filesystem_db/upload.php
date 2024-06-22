@@ -46,9 +46,12 @@
     function store($request,$files){
         extract($request);
         $img = imgUpload($files);
-        print_r($img);
-        // $now = date('Y-m-d H:i:s');
-        // $sql = 'INSERT INTO galleries(name,path,created_at)VALUES(?,?,?)';
-        // $stmt = db()->prepare($sql);
-        // $stmt->execute([$name,$path,$now]);
+        
+        $img['name'] = $name == '' ? $img['name'] : $name;
+
+        date_default_timezone_set('Asia/Taipei');
+        $now = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO galleries(name,path,created_at)VALUES(?,?,?)';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$img['name'],$img['fullname'],$now]);
     }
