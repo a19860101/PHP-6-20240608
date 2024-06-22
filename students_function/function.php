@@ -26,12 +26,17 @@
     function store($request){
         extract($request);
         $sql = 'INSERT INTO students(name,phone,email,gender,course,comment)VALUES(?,?,?,?,?,?)';
-        $stmt = db()->prepare($sql);
-        $course = implode(',',$course);
-        $name = check($name);
-        $phone = check($phone);
-        $email = check($email);
-        $stmt->execute([$name,$phone,$email,$gender,$course,$comment]);
+        try {
+
+            $stmt = db()->prepare($sql);
+            $course = implode(',',$course);
+            $name = check($name);
+            $phone = check($phone);
+            $email = check($email);
+            $stmt->execute([$name,$phone,$email,$gender,$course,$comment]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
     function check($input){
         $input = trim($input); //去除前後空白字元
@@ -42,6 +47,23 @@
     function delete($request){
         extract($request);
         $sql = 'DELETE FROM students WHERE id = ?';
-        $stmt = db()->prepare($sql);
-        $stmt->execute([$id]);
+        try {
+            $stmt = db()->prepare($sql);
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    function edit($request){
+        extract($request);
+        $sql = 'SELECT * FROM students WHERE id = ?';
+        try {
+            $stmt = db()->prepare($sql); 
+            $stmt->execute([$id]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+        return $result;
+
     }
