@@ -16,6 +16,13 @@
         return;
     }
 
+    $max_size = 1*1024*1024;
+    if($size > $max_size){
+        echo '<script>alert("檔案超過限制大小")</script>';
+        header('refresh:0;url=index.php');
+        return;
+    }
+
     // 如果資料夾不存在就建立資料夾
     if(!is_dir('images')){
         mkdir('images');
@@ -26,6 +33,7 @@
 
     // 副檔名
     $ext = pathinfo($name,PATHINFO_EXTENSION);
+    $ext = strtolower($ext);
 
     // 完整檔名
     $fullname = $img_name.'.'.$ext;
@@ -36,6 +44,8 @@
         header('refresh:0;url=index.php');
         return;
     }
+
+    // $name = iconv('big5','utf-8',$name);
 
     // 目標資料夾
     $target = "images/{$fullname}";
