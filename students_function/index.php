@@ -1,9 +1,6 @@
 <?php
-    include('db.php');
-    $sql = 'SELECT * FROM students';
-    $pdo = db();
-    $result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
+    include('function.php');
+    $result = index();
 ?>
 <!DOCTYPE html>
 <html lang="en">
