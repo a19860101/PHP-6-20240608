@@ -67,3 +67,22 @@
         return $result;
 
     }
+    function update($request){
+        extract($request);
+        $course = implode(',',$request['course']);
+
+        $sql = 'UPDATE students SET
+                name        = ?,
+                email       = ?,
+                phone       = ?,
+                gender      = ?,
+                course      = ?,
+                comment     = ?
+                WHERE id = ?
+        ';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$name,$email,$phone,$gender,$course,$comment,$id]);
+
+        return $id;
+
+    }
