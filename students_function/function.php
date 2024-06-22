@@ -39,3 +39,9 @@
         $input = htmlspecialchars($input); //將特殊字元實體化
         return $input;
     }
+    function delete($request){
+        extract($request);
+        $sql = 'DELETE FROM students WHERE id = ?';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$id]);
+    }
