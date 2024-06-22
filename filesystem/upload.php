@@ -10,7 +10,19 @@
     
     extract($_FILES['img']);
 
-    $target = "images/{$name}";
+    // 如果資料夾不存在就建立資料夾
+    if(!is_dir('images')){
+        mkdir('images');
+    }
+
+    // 隨機產生檔名
+    $img_name = md5(time());
+    // 副檔名
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
+
+    $fullname = $img_name.'.'.$ext;
+
+    $target = "images/{$fullname}";
 
     if($error == 0){
         move_uploaded_file($tmp_name,$target); 
