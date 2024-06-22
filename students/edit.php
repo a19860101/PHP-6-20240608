@@ -38,16 +38,19 @@
             <label for="">其他</label>
         </div>
         <div>
+            <?php
+                $course = explode(',',$result['course']);
+            ?>
             <label for="">科目</label>
-            <input type="checkbox" name="course[]" value="國文">
+            <input type="checkbox" name="course[]" value="國文" <?php echo in_array('國文',$course) ? 'checked':''; ?>>
             <label for="">國文</label>
-            <input type="checkbox" name="course[]" value="英文">
+            <input type="checkbox" name="course[]" value="英文" <?php echo in_array('英文',$course) ? 'checked':''; ?>>
             <label for="">英文</label>
-            <input type="checkbox" name="course[]" value="數學">
+            <input type="checkbox" name="course[]" value="數學" <?php echo in_array('數學',$course) ? 'checked':''; ?>>
             <label for="">數學</label>
-            <input type="checkbox" name="course[]" value="物理">
+            <input type="checkbox" name="course[]" value="物理" <?php echo in_array('物理',$course) ? 'checked':''; ?>>
             <label for="">物理</label>
-            <input type="checkbox" name="course[]" value="化學">
+            <input type="checkbox" name="course[]" value="化學" <?php echo in_array('化學',$course) ? 'checked':''; ?>>
             <label for="">化學</label>
         </div>
         <div>
