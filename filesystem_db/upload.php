@@ -41,3 +41,10 @@
             header('refresh:0;url=index.php');
         }
     }
+    function store($request){
+        extract($request);
+        $now = date('Y-m-d H:i:s');
+        $sql = 'INSERT INTO galleries(name,path,created_at)VALUES(?,?,?)';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$name,$path,$now]);
+    }
