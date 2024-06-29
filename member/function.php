@@ -88,3 +88,11 @@
             ];
         }
     }
+    function show($request){
+        extract($request);
+        $sql = 'SELECT * FROM users WHERE id = ?';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }

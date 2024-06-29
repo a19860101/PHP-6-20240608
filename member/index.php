@@ -22,6 +22,7 @@
     <div>
         <?php if(isset($_SESSION['AUTH'])){ ?>
             <h2><?php echo $_SESSION['AUTH']['email'];?> 你好</h2>
+            <a href="show.php?id=<?php echo $_SESSION['AUTH']['id'];?>">詳細資料</a>
         <?php } ?>
         <?php if(!isset($_SESSION['AUTH'])){ ?>
             <h2>訪客你好</h2>
