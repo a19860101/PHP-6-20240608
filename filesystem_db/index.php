@@ -1,4 +1,6 @@
 <?php
+    include('function.php');
+    $imgs = index();
     // if(isset($_REQUEST['del'])){
     //     unlink($_REQUEST['img']);
     // }
@@ -16,5 +18,11 @@
         <input type="file" name="img">
         <input type="submit" value="上傳圖片">
     </form>
+    <?php foreach($imgs as $img){ ?>
+        <div>
+            <h3><?php echo $img['name'];?></h3>
+            <img src="images/<?php echo $img['path'];?>" alt="" width="200">
+        </div>
+    <?php } ?>
 </body>
 </html>
