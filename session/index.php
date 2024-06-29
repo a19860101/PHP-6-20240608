@@ -24,5 +24,6 @@
         print_r($_SESSION['CART']);
     ?>
     <a href="001.php">001</a>
+
 </body>
 </html>
