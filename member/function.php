@@ -72,7 +72,19 @@
         if(!$user){
             return [
                 'errCode' => 5,
-                'status' => '帳號不存在，請重新註冊'
+                'status' => '帳號不存在，請重新登入或註冊'
+            ];
+        }
+        if(password_verify($password,$user['password'])){
+            $_SESSION['AUTH'] = $user;
+            return [
+                'errCode' => 0,
+                'status' => '登入成功'
+            ];
+        }else{
+            return [
+                'errCode' => 6,
+                'status' => '密碼錯誤'
             ];
         }
     }
