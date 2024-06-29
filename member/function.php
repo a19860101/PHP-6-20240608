@@ -96,3 +96,23 @@
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+    function update($request){
+        extract($request);
+
+        $sql = 'UPDATE users SET
+                name        = ?,
+                email       = ?,
+                updated_at  = ?
+                WHERE id = ?
+        ';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$name,$email,now(),$id]);
+        $_SESSION['AUTH']['name'] = $name; 
+        $_SESSION['AUTH']['email'] = $email; 
+        return $id;
+
+    }
+    function redirectTo($msg,$to="index.php"){
+        echo '<script>alert("'.$msg.'")</script>';
+        header('refresh:0;url='.$to);
+    }

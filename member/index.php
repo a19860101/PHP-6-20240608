@@ -21,7 +21,16 @@
     </nav>
     <div>
         <?php if(isset($_SESSION['AUTH'])){ ?>
-            <h2><?php echo $_SESSION['AUTH']['email'];?> 你好</h2>
+            <h2>
+                <?php 
+                    if($_SESSION['AUTH']['name'] == null || $_SESSION['AUTH']['name'] == ''){
+                        echo $_SESSION['AUTH']['email'];
+                    }else{
+                        echo $_SESSION['AUTH']['name'];
+                    }
+                ?> 
+            你好
+            </h2>
             <a href="show.php?id=<?php echo $_SESSION['AUTH']['id'];?>">詳細資料</a>
         <?php } ?>
         <?php if(!isset($_SESSION['AUTH'])){ ?>

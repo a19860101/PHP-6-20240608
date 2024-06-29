@@ -12,7 +12,7 @@
 </head>
 <body>
     <h2>會員資料</h2>
-    <form action="">
+    <form action="update.php" method="post">
         <div>
             <input type="text" name="name" value="<?php echo $user['name'];?>">
         </div>
@@ -22,6 +22,7 @@
         <div>
             角色：<?php echo $user['role']; ?>
         </div>
+        <input type="hidden" name="id" value="<?php echo $user['id'];?>">
         <input type="submit" value="更新資料">
         <input type="button" value="取消" onclick="location.href='index.php'">
     </form>
