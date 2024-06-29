@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +10,22 @@
 </head>
 <body>
     <nav>
-        <a href="register.php">註冊會員</a>
-        <a href="login.php">登入</a>
+        <?php if(isset($_SESSION['AUTH'])){ ?>
+            <a href="#">登出</a>
+        <?php } ?>
+        <?php if(!isset($_SESSION['AUTH'])){ ?>
+            <a href="register.php">註冊會員</a>
+            <a href="login.php">登入</a>
+        <?php } ?>
+
     </nav>
+    <div>
+        <?php if(isset($_SESSION['AUTH'])){ ?>
+            <h2><?php echo $_SESSION['AUTH']['email'];?> 你好</h2>
+        <?php } ?>
+        <?php if(!isset($_SESSION['AUTH'])){ ?>
+            <h2>訪客你好</h2>
+        <?php } ?>
+    </div>
 </body>
 </html>
