@@ -10,3 +10,10 @@
         }
         return $result;
     }
+    function delete($request){
+        extract($request);
+        unlink('images/'.$path);
+        $sql = 'DELETE FROM galleries WHERE id = ?';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$id]);
+    }
