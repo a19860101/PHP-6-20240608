@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php
-        echo $_SESSION['USER'];
+        print_r($_SESSION['USER']);
     ?>
 </body>
 </html>
