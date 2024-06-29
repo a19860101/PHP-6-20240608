@@ -11,7 +11,7 @@
 <body>
     <nav>
         <?php if(isset($_SESSION['AUTH'])){ ?>
-            <a href="#">登出</a>
+            <a href="logout.php">登出</a>
         <?php } ?>
         <?php if(!isset($_SESSION['AUTH'])){ ?>
             <a href="register.php">註冊會員</a>
