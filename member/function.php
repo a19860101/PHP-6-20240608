@@ -15,18 +15,25 @@
         extract($request);
 
         if(checkUser($email) > 0){
-            echo '<script>alert("帳號重複");</script>';
-            header("refresh:0;url=register.php");
-            return;
+            return checkUser($email);
         }
+
 
         $password = password_hash($password,PASSWORD_DEFAULT);
         $sql = 'INSERT INTO users(email,password,created_at,updated_at)VALUES(?,?,?,?)';
         try{
             $stmt = db()->prepare($sql);
             $stmt->execute([$email,$password,now(),now()]);
+            return [
+                'errCode' => 0,
+                'status' => '註冊成功'
+            ];
         }catch(PDOException $e){
             echo $e->getMessage();
+            return [
+                'errCode' => 2,
+                'status' => '註冊錯誤'
+            ];
         }
     }
     function checkUser($email){
@@ -34,6 +41,12 @@
         $stmt = db()->prepare($sql);
         $stmt->execute([$email]);
         
-        $result = $stmt->rowCount();
-        return $result;
+        if($stmt->rowCount() > 0){
+            return [
+                'errCode' => 1,
+                'status' => '重複註冊'
+            ];
+        }else{
+            return 0;
+        }   
     }
