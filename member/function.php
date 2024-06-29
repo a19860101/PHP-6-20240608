@@ -61,3 +61,18 @@
         $input = htmlspecialchars($input); //將特殊字元實體化
         return $input;
     }
+    function auth($request){
+        session_start();
+        extract($request);
+        $sql = 'SELECT * FROM users WHERE email = ?';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if(!$user){
+            return [
+                'errCode' => 5,
+                'status' => '帳號不存在，請重新註冊'
+            ];
+        }
+    }

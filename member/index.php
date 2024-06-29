@@ -8,6 +8,7 @@
 <body>
     <nav>
         <a href="register.php">註冊會員</a>
+        <a href="login.php">登入</a>
     </nav>
 </body>
 </html>
