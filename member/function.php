@@ -13,6 +13,13 @@
     }
     function store($request){
         extract($request);
+
+        if(checkUser($email) > 0){
+            echo '<script>alert("帳號重複");</script>';
+            header("refresh:0;url=register.php");
+            return;
+        }
+
         $password = password_hash($password,PASSWORD_DEFAULT);
         $sql = 'INSERT INTO users(email,password,created_at,updated_at)VALUES(?,?,?,?)';
         try{
@@ -21,4 +28,12 @@
         }catch(PDOException $e){
             echo $e->getMessage();
         }
+    }
+    function checkUser($email){
+        $sql = 'SELECT * FROM users WHERE email = ?';
+        $stmt = db()->prepare($sql);
+        $stmt->execute([$email]);
+        
+        $result = $stmt->rowCount();
+        return $result;
     }
