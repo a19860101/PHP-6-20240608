@@ -13,7 +13,12 @@
     }
     function store($request){
         extract($request);
-
+        if(empty(check($email)) || empty(check($password))){
+            return [
+                'errCode' => 4,
+                'status' => '請輸入資料'
+            ];
+        }
         if(checkUser($email) > 0){
             return checkUser($email);
         }
@@ -49,4 +54,10 @@
         }else{
             return 0;
         }   
+    }
+    function check($input){
+        $input = trim($input); //去除前後空白字元
+        $input = stripslashes($input); //去除反斜線
+        $input = htmlspecialchars($input); //將特殊字元實體化
+        return $input;
     }

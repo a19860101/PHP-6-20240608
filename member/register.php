@@ -9,7 +9,7 @@
     <h2>註冊會員</h2>
     <form action="store.php" method="post">
         <div>
-            <input type="text" name="email" placeholder="請輸入Email">
+            <input type="text" name="email" placeholder="請輸入Email" required>
         </div>
         <div>
             <input type="password" name="password" placeholder="請輸入密碼">
