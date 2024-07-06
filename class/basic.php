@@ -53,7 +53,6 @@ class Hero {
 }
 $user3 = new Hero;
 $user3->test();
-
 $user1 = new Hero;
 $user1->specific = '刺客';
 // $user1->name = '閃電俠';
