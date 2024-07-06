@@ -29,6 +29,7 @@
                 <div>
                     <?php echo $post['body'];?>
                 </div>
+                <a href="show.php?id=<?php echo $post['id'];?>">繼續閱讀</a>
             </div>
         </div>
         <?php } ?>
