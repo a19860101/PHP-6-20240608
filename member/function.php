@@ -116,3 +116,9 @@
         echo '<script>alert("'.$msg.'")</script>';
         header('refresh:0;url='.$to);
     }
+    function index(){
+        $sql = 'SELECT * FROM users';
+        $result = db()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+
+    }

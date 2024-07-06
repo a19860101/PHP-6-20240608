@@ -1,5 +1,7 @@
 <?php 
     session_start();
+    include('function.php');
+    $users = index();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +37,11 @@
         <?php } ?>
         <?php if(!isset($_SESSION['AUTH'])){ ?>
             <h2>訪客你好</h2>
+        <?php } ?>
+    </div>
+    <div>
+        <?php if(isset($_SESSION['AUTH']) && $_SESSION['AUTH']['role'] == 'admin'){ ?>
+            <h2>會員列表</h2>
         <?php } ?>
     </div>
 </body>
