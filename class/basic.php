@@ -33,23 +33,29 @@
 class Hero {
     public $specific;
     public $name;
-    public $life;
+    public $life = 100;
     public $attack;
     public $effect;
     public $level;
     
     function skill(){
-
+        if($this->life < 40){
+            $this->attack = $this->attack * 1.5;
+        }
+        echo $this->attack;
     } 
 }
 $user1 = new Hero;
 $user1->specific = '刺客';
 $user1->name = '閃電俠';
-$user1->life = 7.3;
-var_dump($user1);
+$user1->life -= 80; 
+$user1->attack = 50;
+$user1->skill();
+echo $user1->life;
 
 $user2 = new Hero;
 $user2->specific = '法師';
 $user2->name = '伊格';
-$user2->life = 5.5;
-var_dump($user2);
+$user2->life = 100;
+$user2->attack = 20;
+$user2->skill();
