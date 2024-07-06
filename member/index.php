@@ -9,6 +9,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            width: 600px;
+            border-collapse: collapse;
+        }
+        td,th {
+            border:1px solid #888;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -42,6 +52,24 @@
     <div>
         <?php if(isset($_SESSION['AUTH']) && $_SESSION['AUTH']['role'] == 'admin'){ ?>
             <h2>會員列表</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>名稱</th>
+                    <th>EMAIL</th>
+                    <th>角色</th>
+                    <th>動作</th>
+                </tr>
+                <?php foreach($users as $user){ ?>
+                <tr>
+                    <td><?php echo $user['id']; ?></td>
+                    <td><?php echo $user['name']; ?></td>
+                    <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['role']; ?></td>
+                    <td><a href="#">設定為管理員</a></td>
+                </tr>        
+                <?php } ?>
+            </table>
         <?php } ?>
     </div>
 </body>
