@@ -31,6 +31,7 @@
             混沌之箭
 */
 class Hero {
+    // 屬性
     public $specific;
     public $name;
     public $life = 100;
@@ -38,6 +39,7 @@ class Hero {
     public $effect;
     public $level;
     
+    // 方法
     function skill(){
         if($this->life < 40){
             $this->attack = $this->attack * 1.5;
@@ -50,12 +52,24 @@ $user1->specific = '刺客';
 $user1->name = '閃電俠';
 $user1->life -= 80; 
 $user1->attack = 50;
-$user1->skill();
-echo $user1->life;
+// $user1->skill();
+// echo $user1->life;
 
 $user2 = new Hero;
 $user2->specific = '法師';
 $user2->name = '伊格';
 $user2->life = 100;
 $user2->attack = 20;
-$user2->skill();
+// $user2->skill();
+
+
+class NPC extends Hero {
+    public $attack = 16;
+}
+
+$npc1 = new NPC;
+$npc1->specific = '路人';
+$npc1->name = '店員';
+$npc1->life -= 88;
+$npc1 -> skill();
+print_r($npc1);
