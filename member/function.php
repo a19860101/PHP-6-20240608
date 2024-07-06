@@ -122,3 +122,14 @@
         return $result;
 
     }
+
+    function setRole($request){
+        extract($request);
+        $sql = 'UPDATE users SET role=?,updated_at=? WHERE id=?';
+        $stmt = db()->prepare($sql);
+        if($role == 'user'){
+            $stmt->execute(['admin',now(),$id]);
+        }else{
+            $stmt->execute(['user',now(),$id]);
+        }
+    }

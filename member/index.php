@@ -11,7 +11,7 @@
     <title>Document</title>
     <style>
         table {
-            width: 600px;
+            width: 800px;
             border-collapse: collapse;
         }
         td,th {
@@ -58,6 +58,7 @@
                     <th>名稱</th>
                     <th>EMAIL</th>
                     <th>角色</th>
+                    <th>更新日期</th>
                     <th>動作</th>
                 </tr>
                 <?php foreach($users as $user){ ?>
@@ -66,7 +67,16 @@
                     <td><?php echo $user['name']; ?></td>
                     <td><?php echo $user['email']; ?></td>
                     <td><?php echo $user['role']; ?></td>
-                    <td><a href="#">設定為管理員</a></td>
+                    <td><?php echo $user['updated_at']; ?></td>
+                    <td>
+                        <a href="setRole.php?id=<?php echo $user['id'];?>&role=<?php echo $user['role'];?>">
+                            <?php if($user['role'] == 'user'){ ?>
+                            設定為管理員
+                            <?php }else{ ?>
+                            取消管理員
+                            <?php } ?>
+                        </a>
+                    </td>
                 </tr>        
                 <?php } ?>
             </table>
