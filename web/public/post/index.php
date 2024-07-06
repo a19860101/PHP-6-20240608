@@ -17,7 +17,9 @@
     <title>Document</title>
 </head>
 <body>
-    <nav></nav>
+    <nav>
+        <a href="create.php">新增文章</a>
+    </nav>
     <div class="container">
         <?php foreach($posts as $post){ ?>
         <div>
