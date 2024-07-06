@@ -1,0 +1,15 @@
+{
+    "name": "app/web",
+    "autoload": {
+        "psr-4": {
+            "App\\Web\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zac",
+            "email": "a19860101@gmail.com"
+        }
+    ],
+    "require": {}
+}
