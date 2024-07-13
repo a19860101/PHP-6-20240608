@@ -28,6 +28,14 @@
             $stmt = DB::db()->prepare($sql);
             $stmt->execute([$id]);
         }
+        static function edit($id){
+            // extract($request);
+            $sql = 'SELECT * FROM posts WHERE id = ?';
+            $stmt = DB::db()->prepare($sql);
+            $stmt->execute([$id]);
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
     // class Post extends DB{
     //     function index(){
