@@ -36,6 +36,23 @@
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result;
         }
+        static function update($request){
+            extract($request);
+            // $title = $request['title'];
+            // $author = $request['author'];
+            // $body = $request['body'];
+            // $id = $request['id'];
+
+            $sql = 'UPDATE posts SET title=?,author=?,body=?,updated_at=? WHERE id=?';
+            $stmt = DB::db()->prepare($sql);
+            $stmt->execute([$title,$author,$body,DB::now() ,$id]);
+            // $stmt->execute([$request['title'],$request['author'],$request['body'],DB::now() ,$request['id']]);
+        }
+        static function update2($title,$author,$body,$id){
+            $sql = 'UPDATE posts SET title=?,author=?,body=?,updated_at=? WHERE id=?';
+            $stmt = DB::db()->prepare($sql);
+            $stmt->execute([$title,$author,$body,DB::now() ,$id]);
+        }
     }
     // class Post extends DB{
     //     function index(){

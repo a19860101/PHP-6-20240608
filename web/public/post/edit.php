@@ -25,8 +25,9 @@
             <label for="">內文</label>
             <textarea name="body" id=""><?php echo $post['body'];?></textarea>
         </div>
+        <input type="hidden" name="id" value="<?php echo $post['id'];?>">
         <input type="submit" value="更新">
-        <input type="button" value="取消" onclick="history.back()">
+        <input type="button" value="取消" onclick="location.href='index.php'">
     </form>
 </body>
 </html>
