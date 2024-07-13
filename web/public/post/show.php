@@ -19,6 +19,10 @@
         <div>
             <?php echo $post['body'];?>
         </div>
+        <form action="delete.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $post['id'];?>">
+            <input type="submit" value="刪除" onclick="return confirm('確認刪除？')">
+        </form>
         <a href="index.php">回首頁</a>
     </div>
 </body>
